@@ -1,0 +1,12 @@
+/* 
+  StoreItemCategory.strings
+  HairCare
+
+  Created by José Lucas Souza das Chagas on 09/12/22.
+  
+*/
+"packs" = "Packs";
+"shampoo" = "Shampoo";
+"hair_mask" = "Hair mask";
+"conditioner" = "Conditioner";
+"painting" = "Painting";

@@ -1,0 +1,13 @@
+/* 
+  ProductDetail.strings
+  HairCare
+
+  Created by José Lucas Souza das Chagas on 23/06/22.
+  
+*/
+"ingredients" = "Ingredientes";
+"details" = "Detalhes";
+"description" = "Descrição";
+"read_more" = "Ler mais";
+
+"add_to_cart" = "Adicionar ao carrinho";

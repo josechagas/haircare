@@ -1,0 +1,112 @@
+{
+    "error": null,
+    "data": {
+        "shampoo": [
+            {
+                "id": "23123oh12o3h123o1h3o",
+                "name": "Shampoo revitalizante",
+                "imageUrl": "https://picsum.photos/200",
+                "category": "shampoo",
+                "price": {
+                    "valueInCents": 10000,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23123oh12o3h1asdae1h3o",
+                "name": "Pantenne",
+                "imageUrl": "https://picsum.photos/201",
+                "category": "shampoo",
+                "price": {
+                    "valueInCents": 10990,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23144552h12o3h1asdae1h3o",
+                "name": "Clear men",
+                "imageUrl": "https://picsum.photos/201",
+                "category": "shampoo",
+                "price": {
+                    "valueInCents": 8990,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23144552h12o3h1asdaeasdasdqw",
+                "name": "Jhonson Baby",
+                "imageUrl": "https://picsum.photos/203",
+                "category": "shampoo",
+                "price": {
+                    "valueInCents": 5090,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23144552h12o3h14444aeasdasdqw",
+                "name": "Jhonson Baby",
+                "imageUrl": "https://picsum.photos/204",
+                "category": "shampoo",
+                "price": {
+                    "valueInCents": 5890,
+                    "currency": "R$"
+                }
+            }
+        ],
+        "hairMask": [
+            {
+                "id": "23123oh12o3h22113o1h3o",
+                "name": "Hair revitalizante",
+                "imageUrl": "https://picsum.photos/200",
+                "category": "hairMask",
+                "price": {
+                    "valueInCents": 10000,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "123123wdadasd123123",
+                "name": "Mascara capilar",
+                "imageUrl": "https://picsum.photos/201",
+                "category": "hairMask",
+                "price": {
+                    "valueInCents": 10990,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23144523313djasd2o3h1asdae1h3o",
+                "name": "hair mascasa",
+                "imageUrl": "https://picsum.photos/201",
+                "category": "hairMask",
+                "price": {
+                    "valueInCents": 8990,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "23144552h12o3h1009977aeasdasdqw",
+                "name": "Restauração capilar",
+                "imageUrl": "https://picsum.photos/203",
+                "category": "hairMask",
+                "price": {
+                    "valueInCents": 5090,
+                    "currency": "R$"
+                }
+            },
+            {
+                "id": "ffrhhj14444aeasdasdqw",
+                "name": "Revitalizante para cabelos sensiveis",
+                "imageUrl": "https://picsum.photos/204",
+                "category": "hairMask",
+                "price": {
+                    "valueInCents": 5890,
+                    "currency": "R$"
+                }
+            }
+        ],
+        "conditioner": [],
+        "painting": [],
+        "packs": []
+    }
+}
