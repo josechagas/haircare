@@ -13,14 +13,14 @@ class AppCoordinator: Coordinator {
     
     private init(){}
     
-    @ViewBuilder func pageFor(route: AppRoute) -> some View {
+    func pageFor(route: AppRoute) -> some View {
         switch route {
         case .start:
-            StartPageFactory.makeStartPage()
+            StartPageBuilder().build()
         case AppRoute.home:
-            HomePageFactory.makeHomePage()
+            HomeBuilder().build()
         case AppRoute.productDetail(let product):
-            ProductDetailFactory.makeProductDetail(product: product)
+            ProductDetailBuilder(product: product).build()
         case .packDetail:
             EmptyView()
         }
