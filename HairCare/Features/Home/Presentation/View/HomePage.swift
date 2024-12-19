@@ -70,16 +70,25 @@ struct HomePage<VModel: HomeViewModelProtocol>: View, WithViewModel {
 //MARK:  - PREVIEW
 
 #Preview {
-    HomePage(viewModel: HomeViewModelPreview())
-}
-
-fileprivate class HomeViewModelPreview: HomeViewModelProtocol {
-    var selectedTabIndex: Int = 0
-    var productsByCategory: [StoreItemCategory : [Product]]? = [:]
-    var packs: [Pack]? = []
-    var loadInformationsStatus: ExecutionStatus = .inProgress
-    var refreshInformationsStatus: ExecutionStatus = .none
+    class HomeViewModelPreview: HomeViewModelProtocol {
+        var selectedTabIndex: Int = 0
+        var productsByCategory: [StoreItemCategory : [Product]]? = [
+            .conditioner: [
+                .init(id: "1",
+                      name: "Some name",
+                      imageUrl: nil,
+                      category: .conditioner,
+                      price: .init(valueInCents: 9000,
+                                   currency: "R$"))
+            ]
+        ]
+        var packs: [Pack]? = []
+        var loadInformationsStatus: ExecutionStatus = .success
+        var refreshInformationsStatus: ExecutionStatus = .none
+        
+        func loadInformations() async {}
+        func refreshInformations() async {}
+    }
     
-    func loadInformations() async {}
-    func refreshInformations() async {}
+    return HomePage(viewModel: HomeViewModelPreview())
 }
