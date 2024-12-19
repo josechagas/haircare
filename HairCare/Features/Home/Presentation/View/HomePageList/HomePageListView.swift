@@ -60,12 +60,15 @@ struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel 
 }
 
 #Preview {
-    let packsApi = PacksApiService()
-    let productsApi = ProductsApiService()
-    let repository = HomeRepository(packsApi: packsApi,
-                                    productsApi: productsApi)
-    let useCase = HomeUseCase(repository: repository)
-    let viewModel = HomeViewModel(homeUseCase: useCase)
-    HomePageListView<HomeViewModel>()
+    let viewModel = HomeListViewModelPreview()
+    HomePageListView<HomeListViewModelPreview>()
         .environmentObject(viewModel)
+}
+
+fileprivate class HomeListViewModelPreview: HomeListViewModelProtocol {
+    var selectedTabIndex: Int = 0
+    var productsByCategory: [StoreItemCategory : [Product]]? = [:]
+    var packs: [Pack]? = []
+    var refreshInformationsStatus: ExecutionStatus = .none
+    func refreshInformations() async {}
 }
