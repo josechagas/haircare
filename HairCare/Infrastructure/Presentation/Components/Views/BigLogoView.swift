@@ -37,8 +37,6 @@ struct BigLogoView: View {
     }
 }
 
-struct BigLogoView_Previews: PreviewProvider {
-    static var previews: some View {
-        BigLogoView()
-    }
+#Preview {
+    BigLogoView()
 }

@@ -27,8 +27,6 @@ struct HomePagePacksByCategoryView: View {
     }
 }
 
-struct HomePagePacksByCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePagePacksByCategoryView()
-    }
+#Preview {
+    HomePagePacksByCategoryView()
 }

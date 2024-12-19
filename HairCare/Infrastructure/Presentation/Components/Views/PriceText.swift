@@ -75,22 +75,19 @@ struct PriceText: View {
     }
 }
 
-struct PriceText_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            PriceText(
-                currency: "$", valueInCents: 19099, style: .small
-            )
-            PriceText(
-                currency: "$", valueInCents: 19099
-            )
-            PriceText(
-                currency: "$", valueInCents: 19099, style: .large
-            )
-        }
+#Preview {
+    VStack {
+        PriceText(
+            currency: "$", valueInCents: 19099, style: .small
+        )
+        PriceText(
+            currency: "$", valueInCents: 19099
+        )
+        PriceText(
+            currency: "$", valueInCents: 19099, style: .large
+        )
     }
 }
-
 
 extension PriceText {
     enum Style {

@@ -30,8 +30,6 @@ struct StartPageBottomView: View {
     }
 }
 
-struct StartPageBottomView_Previews: PreviewProvider {
-    static var previews: some View {
-        StartPageBottomView(showNextPage: .constant(false))
-    }
+#Preview {
+    StartPageBottomView(showNextPage: .constant(false))
 }

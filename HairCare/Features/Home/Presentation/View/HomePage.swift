@@ -67,10 +67,12 @@ struct HomePage<VModel: HomeViewModelProtocol>: View, WithViewModel {
     }
 }
 
-struct HomePage_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePage(
-            viewModel: HomeViewModelFactory.makeHomeViewModel()
-        )
-    }
+#Preview {
+    let packsApi = PacksApiService()
+    let productsApi = ProductsApiService()
+    let repository = HomeRepository(packsApi: packsApi,
+                                    productsApi: productsApi)
+    let useCase = HomeUseCase(repository: repository)
+    let viewModel = HomeViewModel(homeUseCase: useCase)
+    HomePage(viewModel: viewModel)
 }

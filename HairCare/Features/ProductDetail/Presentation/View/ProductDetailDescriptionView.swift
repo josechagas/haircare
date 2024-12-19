@@ -40,8 +40,6 @@ struct ProductDetailDescriptionView: View {
     }
 }
 
-struct ProductDetailDescriptionView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailDescriptionView()
-    }
+#Preview {
+    ProductDetailDescriptionView()
 }

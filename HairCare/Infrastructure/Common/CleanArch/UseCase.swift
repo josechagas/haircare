@@ -7,4 +7,4 @@
 
 import Foundation
 
-protocol UseCase: AnyActor {}
+protocol UseCase: Actor {}

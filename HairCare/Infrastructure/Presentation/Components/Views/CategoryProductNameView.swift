@@ -33,20 +33,17 @@ struct CategoryProductNameView: View {
     }
 }
 
-struct CategoryProductNameView_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack(spacing: 40) {
-            CategoryProductNameView(
-                category: "Category", name: "Hair Strength", style: .small
-            )
-            CategoryProductNameView(
-                category: "Category", name: "Hair Strength", style: .medium
-            )
-            CategoryProductNameView(
-                category: "Category", name: "Hair Strength", style: .large
-            )
-
-        }
+#Preview {
+    VStack(spacing: 40) {
+        CategoryProductNameView(
+            category: "Category", name: "Hair Strength", style: .small
+        )
+        CategoryProductNameView(
+            category: "Category", name: "Hair Strength", style: .medium
+        )
+        CategoryProductNameView(
+            category: "Category", name: "Hair Strength", style: .large
+        )
     }
 }
 

@@ -19,16 +19,14 @@ struct RoundedCornersShape: Shape {
     }
 }
 
-struct RoundedCornersShape_Previews: PreviewProvider {
-    static var previews: some View {
-        Text("Testando")
-            .padding()
-            .background {
-                RoundedCornersShape(
-                    corners: [.topLeft, .topRight],
-                    radius: 10
-                )
-                    .fill(Color.gray)
-            }
-    }
+#Preview {
+    Text("Testando")
+        .padding()
+        .background {
+            RoundedCornersShape(
+                corners: [.topLeft, .topRight],
+                radius: 10
+            )
+                .fill(Color.gray)
+        }
 }

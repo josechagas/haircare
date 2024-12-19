@@ -41,12 +41,10 @@ struct HomePageTabItem: View {
     }
 }
 
-struct HomePageTabItem_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageTabItem(
-            selectedIndex: .constant(0),
-            index: 0,
-            title: "Teste 1"
-        )
-    }
+#Preview {
+    HomePageTabItem(
+        selectedIndex: .constant(0),
+        index: 0,
+        title: "Teste 1"
+    )
 }

@@ -59,9 +59,13 @@ struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel 
     }
 }
 
-struct HomePageListView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageListView<HomeViewModel>()
-            .environmentObject(HomeViewModelFactory.makeHomeViewModel())
-    }
+#Preview {
+    let packsApi = PacksApiService()
+    let productsApi = ProductsApiService()
+    let repository = HomeRepository(packsApi: packsApi,
+                                    productsApi: productsApi)
+    let useCase = HomeUseCase(repository: repository)
+    let viewModel = HomeViewModel(homeUseCase: useCase)
+    HomePageListView<HomeViewModel>()
+        .environmentObject(viewModel)
 }

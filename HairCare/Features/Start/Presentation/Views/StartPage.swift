@@ -43,8 +43,6 @@ struct StartPage<VModel: StartViewModelProtocol>: View, WithViewModel {
     }
 }
 
-struct StartPage_Previews: PreviewProvider {
-    static var previews: some View {
-        StartPage(viewModel: StartViewModel())
-    }
+#Preview {
+    StartPage(viewModel: StartViewModel())
 }

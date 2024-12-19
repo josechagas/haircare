@@ -30,12 +30,10 @@ struct IngredientCardView: View {
     }
 }
 
-struct IngredientCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        IngredientCardView(
-            name: "Ingredient",
-            imageUrl: "https://picsum.photos/\(Int.random(in: 300..<900))"
-        )
-            .frame(width: 120)
-    }
+#Preview {
+    IngredientCardView(
+        name: "Ingredient",
+        imageUrl: "https://picsum.photos/\(Int.random(in: 300..<900))"
+    )
+        .frame(width: 120)
 }

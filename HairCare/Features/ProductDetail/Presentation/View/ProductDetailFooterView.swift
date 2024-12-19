@@ -37,13 +37,10 @@ struct ProductDetailFooterView: View {
     }
 }
 
-struct ProductDetailFooterView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailFooterView(
-            price: Price(valueInCents: 9840, currency: "$"),
-            numberOfChoosedItems: .constant(1),
-            onAddToCartButtonClick: {}
-        )
-            
-    }
+#Preview {
+    ProductDetailFooterView(
+        price: Price(valueInCents: 9840, currency: "$"),
+        numberOfChoosedItems: .constant(1),
+        onAddToCartButtonClick: {}
+    )
 }

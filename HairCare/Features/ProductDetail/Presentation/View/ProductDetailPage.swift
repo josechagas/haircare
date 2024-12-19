@@ -10,49 +10,49 @@ import SwiftUI
 struct ProductDetailPage<VModel: ProductDetailViewModelProtocol>: View, WithViewModel {
     
     @EnvironmentObject var cartService: CartService
-
+    
     @StateObject var viewModel: VModel
     @State private var numberOfPickedItems: Int = 1
-
+    
     
     var body: some View {
         FixedBottomSheetView(
             content: {
-            ScrollView {
-                VStack(spacing: 20){
-                    HStack {
-                        CategoryProductNameView(
-                            category: viewModel.category.localizedName,
-                            name: viewModel.name,
-                            style: .large
-                        )
-                        Spacer()
+                ScrollView {
+                    VStack(spacing: 20){
+                        HStack {
+                            CategoryProductNameView(
+                                category: viewModel.category.localizedName,
+                                name: viewModel.name,
+                                style: .large
+                            )
+                            Spacer()
+                        }
+                        HStack(alignment: .top){
+                            Image(R.image.sampleProduct2.name)
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                            ProductDetailIngredientsView()
+                                .overlay {
+                                    LinearGradient(colors: [
+                                        Color.systemBackground.opacity(0),
+                                        Color.systemBackground.opacity(1)
+                                    ], startPoint: UnitPoint(x: 0.5, y: 0.8), endPoint: UnitPoint(x: 0.5, y: 1))
+                                }
+                        }
+                        ProductDetailDescriptionView()
                     }
-                    HStack(alignment: .top){
-                        Image(R.image.sampleProduct2.name)
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                        ProductDetailIngredientsView()
-                            .overlay {
-                                LinearGradient(colors: [
-                                    Color.systemBackground.opacity(0),
-                                    Color.systemBackground.opacity(1)
-                                ], startPoint: UnitPoint(x: 0.5, y: 0.8), endPoint: UnitPoint(x: 0.5, y: 1))
-                            }
+                    .padding()
+                }
+            }, bottomSheetContent: {
+                ProductDetailFooterView(
+                    price: viewModel.price,
+                    numberOfChoosedItems: $numberOfPickedItems,
+                    onAddToCartButtonClick: {
+                        addItemToCart()
                     }
-                    ProductDetailDescriptionView()
-                }
-                .padding()
-            }
-        }, bottomSheetContent: {
-            ProductDetailFooterView(
-                price: viewModel.price,
-                numberOfChoosedItems: $numberOfPickedItems,
-                onAddToCartButtonClick: {
-                    addItemToCart()
-                }
-            )
-        })
+                )
+            })
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle(R.string.productDetail.details())
         .toolbar {
@@ -60,7 +60,7 @@ struct ProductDetailPage<VModel: ProductDetailViewModelProtocol>: View, WithView
                 Button(action: {}) {
                     Image(systemName: "ellipsis")
                         .rotationEffect(Angle.degrees(90))
-
+                    
                 }
             }
         }
@@ -72,19 +72,16 @@ struct ProductDetailPage<VModel: ProductDetailViewModelProtocol>: View, WithView
     }
 }
 
-struct ProductDetailPage_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            ProductDetailPage(viewModel: ProductDetailViewModelFactory.makeProductDetailViewModel(
-                product: Product(id: "00",
-                                 name: "Product",
-                                 imageUrl: nil,
-                                 category: .shampoo,
-                                 price: Price(valueInCents: 4498,
-                                              currency: "$")
-                                )
-            ))
-        }
-        
+#Preview {
+    NavigationView {
+        let viewModel = ProductDetailViewModel(
+            product: Product(id: "00",
+                             name: "Product",
+                             imageUrl: nil,
+                             category: .shampoo,
+                             price: Price(valueInCents: 4498,
+                                          currency: "$")
+                            ))
+        ProductDetailPage(viewModel: viewModel)
     }
 }

@@ -22,10 +22,8 @@ struct HomePageNavigationPath<Content>: View where Content: View {
     }
 }
 
-struct HomePageNavigationPath_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageNavigationPath {
-            EmptyView()
-        }
+#Preview {
+    HomePageNavigationPath {
+        EmptyView()
     }
 }
