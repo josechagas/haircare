@@ -46,13 +46,11 @@ struct FixedBottomSheetView<Content, BottomSheetContent>: View where Content: Vi
     }
 }
 
-struct FixedBottomSheetView_Previews: PreviewProvider {
-    static var previews: some View {
-        FixedBottomSheetView(
-            content: {
-                Text("Teste 2")
-            }, bottomSheetContent: {
-                Text("Bottom sheet teste 1")
-            })
-    }
+#Preview {
+    FixedBottomSheetView(
+        content: {
+            Text("Teste 2")
+        }, bottomSheetContent: {
+            Text("Bottom sheet teste 1")
+        })
 }

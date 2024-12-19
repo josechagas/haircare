@@ -24,10 +24,8 @@ struct ProfileImageView: View {
     }
 }
 
-struct ProfileImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProfileImageView(
-            size: 120
-        )
-    }
+#Preview {
+    ProfileImageView(
+        size: 120
+    )
 }

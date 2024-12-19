@@ -38,30 +38,28 @@ struct OutlinedButtonStyle: ButtonStyle {
 
 }
 
-struct OutlinedButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            Button(action: {}, label: {
-                Image(systemName: "plus")
-            })
-                .buttonStyle(.outlined
-                                .cornerRadius(.infinity)
-                                .lineWidth(2))
-            
-            Button("Teste") {
-                
-            }.buttonStyle(.outlined
+#Preview {
+    VStack {
+        Button(action: {}, label: {
+            Image(systemName: "plus")
+        })
+            .buttonStyle(.outlined
                             .cornerRadius(.infinity)
-                            .lineWidth(2)
-            )
+                            .lineWidth(2))
+        
+        Button("Teste") {
             
-            Button(action: {}, label: {
-                Label("Adicionar", systemImage: "plus")
-                    .labelStyle(.titleAndIcon)
-            })
-                .buttonStyle(.outlined
-                                .cornerRadius(.infinity))
-        }
+        }.buttonStyle(.outlined
+                        .cornerRadius(.infinity)
+                        .lineWidth(2)
+        )
+        
+        Button(action: {}, label: {
+            Label("Adicionar", systemImage: "plus")
+                .labelStyle(.titleAndIcon)
+        })
+            .buttonStyle(.outlined
+                            .cornerRadius(.infinity))
     }
 }
 

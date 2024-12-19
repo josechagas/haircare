@@ -36,16 +36,14 @@ struct ProductCardView: View {
     }
 }
 
-struct ProductCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductCardView(
-            product: Product(id: "00",
-                             name: "Product",
-                             imageUrl: nil,
-                             category: .conditioner,
-                             price: Price(valueInCents: 10000, currency: "$"))
-        )
-            .preferredColorScheme(.light)
-            .padding(20)
-    }
+#Preview {
+    ProductCardView(
+        product: Product(id: "00",
+                         name: "Product",
+                         imageUrl: nil,
+                         category: .conditioner,
+                         price: Price(valueInCents: 10000, currency: "$"))
+    )
+        .preferredColorScheme(.light)
+        .padding(20)
 }

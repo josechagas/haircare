@@ -43,12 +43,10 @@ struct CardView<Content>: View where Content: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView {
-            Text("Um texto")
-                .padding(20)
-        }
-        .foregroundColor(Color.red)
+#Preview {
+    CardView {
+        Text("Um texto")
+            .padding(20)
     }
+    .foregroundColor(Color.red)
 }

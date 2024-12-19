@@ -51,10 +51,8 @@ struct UnitStepperView: View {
     }
 }
 
-struct UnitStepperView_Previews: PreviewProvider {
-    static var previews: some View {
-        UnitStepperView(
-            units: .constant(1)
-        )
-    }
+#Preview {
+    UnitStepperView(
+        units: .constant(1)
+    )
 }

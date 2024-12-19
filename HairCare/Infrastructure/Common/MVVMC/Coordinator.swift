@@ -14,5 +14,6 @@ protocol Coordinator {
     associatedtype Page: View
     associatedtype Route: Codable
 
-    func pageFor(route: Self.Route) -> Self.Page
+    @ViewBuilder
+    func pageFor(route: Route) -> Page
 }

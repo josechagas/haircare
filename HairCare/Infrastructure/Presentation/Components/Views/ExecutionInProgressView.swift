@@ -20,8 +20,6 @@ struct ExecutionInProgressView: View {
     }
 }
 
-struct ExecutionInProgressView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExecutionInProgressView()
-    }
+#Preview {
+    ExecutionInProgressView()
 }

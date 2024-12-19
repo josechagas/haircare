@@ -20,28 +20,26 @@ struct CircularBorderedProminentButtonStyle: ButtonStyle {
     }
 }
 
-struct CircularBorderedProiminentButton_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack {
-            HStack {
-                Button(action: {}, label: {
-                    Image(systemName: "plus")
-                })
-                .buttonStyle(.circularBorderedPromiment)
-            }
-            
+#Preview {
+    VStack {
+        HStack {
             Button(action: {}, label: {
-                Label("Adicionar", systemImage: "plus")
-                    .labelStyle(.titleAndIcon)
+                Image(systemName: "plus")
             })
-                .buttonStyle(.circularBorderedPromiment)
-            
-            Button(action: {}, label: {
-                Text("Adicionar")
-            })
-                .buttonStyle(.circularBorderedPromiment)
-        
+            .buttonStyle(.circularBorderedPromiment)
         }
+        
+        Button(action: {}, label: {
+            Label("Adicionar", systemImage: "plus")
+                .labelStyle(.titleAndIcon)
+        })
+            .buttonStyle(.circularBorderedPromiment)
+        
+        Button(action: {}, label: {
+            Text("Adicionar")
+        })
+            .buttonStyle(.circularBorderedPromiment)
+    
     }
 }
 

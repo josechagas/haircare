@@ -40,22 +40,20 @@ struct HomePageProductsByCategoryView: View {
     }
 }
 
-struct HomePageProductsByCategoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageProductsByCategoryView(
-            category: .shampoo,
-            products: (0...10).map({ index in
-                return Product(
-                    id: "\(index)",
-                    name: "product \(index)",
-                    imageUrl: nil,
-                    category: StoreItemCategory.allCases.randomElement() ?? .conditioner,
-                    price: Price(
-                        valueInCents: 10000,
-                        currency: "$"
-                    )
+#Preview {
+    HomePageProductsByCategoryView(
+        category: .shampoo,
+        products: (0...10).map({ index in
+            return Product(
+                id: "\(index)",
+                name: "product \(index)",
+                imageUrl: nil,
+                category: StoreItemCategory.allCases.randomElement() ?? .conditioner,
+                price: Price(
+                    valueInCents: 10000,
+                    currency: "$"
                 )
-            })
-        )
-    }
+            )
+        })
+    )
 }

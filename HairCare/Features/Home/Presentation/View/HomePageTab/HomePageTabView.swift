@@ -65,10 +65,8 @@ struct HomePageTabView: View {
     }
 }
 
-struct HomePageTabs_Previews: PreviewProvider {
-    static var previews: some View {
-        HomePageTabView(
-            selectedIndex: .constant(0)
-        )
-    }
+#Preview {
+    HomePageTabView(
+        selectedIndex: .constant(0)
+    )
 }

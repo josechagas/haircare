@@ -24,8 +24,6 @@ struct ProductDetailReadMoreView: View {
     }
 }
 
-struct ProductDetailReadModeView_Previews: PreviewProvider {
-    static var previews: some View {
-        ProductDetailReadMoreView()
-    }
+#Preview {
+    ProductDetailReadMoreView()
 }

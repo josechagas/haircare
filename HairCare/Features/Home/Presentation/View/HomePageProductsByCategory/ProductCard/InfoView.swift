@@ -22,10 +22,8 @@ struct InfoView: View {
     }
 }
 
-struct InfoView_Previews: PreviewProvider {
-    static var previews: some View {
-        InfoView(
-            category: "Category", name: "Name"
-        )
-    }
+#Preview {
+    InfoView(
+        category: "Category", name: "Name"
+    )
 }

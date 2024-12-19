@@ -22,9 +22,6 @@ struct PackCardView: View {
     }
 }
 
-struct PackCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        PackCardView()
-            .frame(width: 120, height: 120)
-    }
+#Preview {
+    PackCardView()
 }

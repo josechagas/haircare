@@ -25,9 +25,6 @@ struct StartPageBackgroundView: View {
     }
 }
 
-struct StartPageBackgroundView_Previews: PreviewProvider {
-    static var previews: some View {
-        StartPageBackgroundView()
-            
-    }
+#Preview {
+    StartPageBackgroundView()
 }

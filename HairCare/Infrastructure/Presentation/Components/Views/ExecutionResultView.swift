@@ -127,58 +127,55 @@ struct DefaultActionsContent: View {
     }
 }
 
-
-struct ExecutionResultView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExecutionResultView(
-            message: "Failed to load products",
-            topImageSystemName: "exclamationmark.triangle",
-            actionsContent: DefaultActionsContent(title: "Action button title", action: {})
-        )
-        
-        ExecutionResultView (
-            message: "Failed to load products",
-            topContent: {
-                Image(systemName: "exclamationmark.triangle")
-                    .resizable()
-                    .frame(width: 50, height: 50)
+#Preview {
+    ExecutionResultView(
+        message: "Failed to load products",
+        topImageSystemName: "exclamationmark.triangle",
+        actionsContent: DefaultActionsContent(title: "Action button title", action: {})
+    )
+    
+    ExecutionResultView (
+        message: "Failed to load products",
+        topContent: {
+            Image(systemName: "exclamationmark.triangle")
+                .resizable()
+                .frame(width: 50, height: 50)
+        }
+    )
+    
+    ExecutionResultView (
+        messageContent: {
+            VStack {
+                Text("Um titulo")
+                    .font(.title2)
+                Text("Uma descrição bem legal")
+                    .font(.caption)
             }
-        )
-        
-        ExecutionResultView (
-            messageContent: {
-                VStack {
-                    Text("Um titulo")
-                        .font(.title2)
-                    Text("Uma descrição bem legal")
-                        .font(.caption)
-                }
-            },
-            topContent: {
-                Image(systemName: "exclamationmark.triangle")
-                    .resizable()
-                    .frame(width: 50, height: 50)
+        },
+        topContent: {
+            Image(systemName: "exclamationmark.triangle")
+                .resizable()
+                .frame(width: 50, height: 50)
+        }
+    )
+    
+    ExecutionResultView(
+        message: "Failed to load products",
+        topImageSystemName: "exclamationmark.triangle",
+        actionsContent: {
+            HStack {
+                Button(
+                    action: {},
+                    label: {
+                        Text("Action one")
+                    })
+                Button(
+                    action: {},
+                    label: {
+                        Text("Action two")
+                    })
+                    .buttonStyle(.bordered)
             }
-        )
-        
-        ExecutionResultView(
-            message: "Failed to load products",
-            topImageSystemName: "exclamationmark.triangle",
-            actionsContent: {
-                HStack {
-                    Button(
-                        action: {},
-                        label: {
-                            Text("Action one")
-                        })
-                    Button(
-                        action: {},
-                        label: {
-                            Text("Action two")
-                        })
-                        .buttonStyle(.bordered)
-                }
-            }
-        )
-    }
+        }
+    )
 }
