@@ -893,7 +893,7 @@
 			buildConfigurationList = 03F345BE28513233001D8BEC /* Build configuration list for PBXNativeTarget "HairCare" */;
 			buildPhases = (
 				06A60ADF8F1C1BF184ED056F /* [CP] Check Pods Manifest.lock */,
-				0313FE43285A646000415063 /* ShellScript */,
+				0313FE43285A646000415063 /* R.swift Script */,
 				03F3459628513230001D8BEC /* Sources */,
 				03F3459728513230001D8BEC /* Frameworks */,
 				03F3459828513230001D8BEC /* Resources */,
@@ -955,7 +955,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					03F3459928513230001D8BEC = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -1023,7 +1023,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0313FE43285A646000415063 /* ShellScript */ = {
+		0313FE43285A646000415063 /* R.swift Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
@@ -1033,6 +1033,7 @@
 			);
 			inputPaths = (
 			);
+			name = "R.swift Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -1040,7 +1041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/HairCare/Resources/R.generated.swift\"\n";
 		};
 		06A60ADF8F1C1BF184ED056F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1340,6 +1341,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1403,6 +1405,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1495,7 +1498,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F92BD4E81D69A2AC0C031083 /* Pods-HairCareTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1516,7 +1518,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DE7A405412C3E5CE01C4343C /* Pods-HairCareTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -1537,7 +1538,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 92BA9C20E530AD2EDBE0C354 /* Pods-HairCare-HairCareUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T6C28BT29G;
@@ -1556,7 +1556,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 71D8D05366A389135BED6230 /* Pods-HairCare-HairCareUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = T6C28BT29G;
