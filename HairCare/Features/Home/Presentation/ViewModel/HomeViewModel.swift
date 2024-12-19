@@ -51,5 +51,4 @@ class HomeViewModel: HomeViewModelProtocol {
         async let loadedPacks = usecase.loadPacks()
         (productsByCategory, packs) = try await (loadedProducts, loadedPacks)
     }
-    
 }

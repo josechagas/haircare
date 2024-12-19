@@ -67,12 +67,19 @@ struct HomePage<VModel: HomeViewModelProtocol>: View, WithViewModel {
     }
 }
 
+//MARK:  - PREVIEW
+
 #Preview {
-    let packsApi = PacksApiService()
-    let productsApi = ProductsApiService()
-    let repository = HomeRepository(packsApi: packsApi,
-                                    productsApi: productsApi)
-    let useCase = HomeUseCase(repository: repository)
-    let viewModel = HomeViewModel(homeUseCase: useCase)
-    HomePage(viewModel: viewModel)
+    HomePage(viewModel: HomeViewModelPreview())
+}
+
+fileprivate class HomeViewModelPreview: HomeViewModelProtocol {
+    var selectedTabIndex: Int = 0
+    var productsByCategory: [StoreItemCategory : [Product]]? = [:]
+    var packs: [Pack]? = []
+    var loadInformationsStatus: ExecutionStatus = .inProgress
+    var refreshInformationsStatus: ExecutionStatus = .none
+    
+    func loadInformations() async {}
+    func refreshInformations() async {}
 }
