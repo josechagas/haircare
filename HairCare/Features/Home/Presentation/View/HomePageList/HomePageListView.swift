@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel  {
-
+    
     @EnvironmentObject var viewModel: VModel
     
     var body: some View {
@@ -33,11 +33,11 @@ struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel 
                         selectedIndex: $viewModel.selectedTabIndex
                     )
                 })
-                    .listRowInsets(
-                        EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
-                    )
-                    .listRowSeparator(.hidden)
-                    .listSectionSeparator(.hidden)
+                .listRowInsets(
+                    EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
+                )
+                .listRowSeparator(.hidden)
+                .listSectionSeparator(.hidden)
             }
             .onChange(of: viewModel.selectedTabIndex, perform: { newValue in
                 onSelectedTabIndexChange(newTabIndex: newValue, proxy: proxy)
@@ -60,15 +60,24 @@ struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel 
 }
 
 #Preview {
+    class HomeListViewModelPreview: HomeListViewModelProtocol {
+        var selectedTabIndex: Int = 0
+        var productsByCategory: [StoreItemCategory : [Product]]? = [
+            .conditioner: [
+                .init(id: "1",
+                      name: "Some name",
+                      imageUrl: nil,
+                      category: .conditioner,
+                      price: .init(valueInCents: 9000,
+                                   currency: "R$"))
+            ]
+        ]
+        var packs: [Pack]? = []
+        var refreshInformationsStatus: ExecutionStatus = .none
+        func refreshInformations() async {}
+    }
+    
     let viewModel = HomeListViewModelPreview()
-    HomePageListView<HomeListViewModelPreview>()
+    return HomePageListView<HomeListViewModelPreview>()
         .environmentObject(viewModel)
-}
-
-fileprivate class HomeListViewModelPreview: HomeListViewModelProtocol {
-    var selectedTabIndex: Int = 0
-    var productsByCategory: [StoreItemCategory : [Product]]? = [:]
-    var packs: [Pack]? = []
-    var refreshInformationsStatus: ExecutionStatus = .none
-    func refreshInformations() async {}
 }
