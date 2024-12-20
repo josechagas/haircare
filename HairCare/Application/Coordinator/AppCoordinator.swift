@@ -8,11 +8,7 @@
 import Foundation
 import SwiftUI
 
-class AppCoordinator: Coordinator {
-    static let shared: AppCoordinator = AppCoordinator()
-    
-    private init(){}
-    
+struct AppCoordinator: Coordinator {
     func pageFor(route: AppRoute) -> some View {
         switch route {
         case .start:

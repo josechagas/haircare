@@ -14,7 +14,7 @@ struct HairCareApp: App {
     
     var body: some Scene {
         WindowGroup {
-            AppCoordinator.shared.pageFor(route: .start)
+            AppNavigationStack()
                 .environmentObject(cartService)
         }
     }

@@ -12,7 +12,7 @@ import SwiftUI
 @MainActor
 protocol Coordinator {
     associatedtype Page: View
-    associatedtype Route: Codable
+    associatedtype Route: Hashable
 
     @ViewBuilder
     func pageFor(route: Route) -> Page

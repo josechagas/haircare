@@ -10,14 +10,15 @@ import SwiftUI
 struct StartPage<VModel: StartViewModelProtocol>: View, WithViewModel {
     
     @StateObject var viewModel: VModel
-    
+
     var body: some View {
         ZStack {
             StartPageBackgroundView()
+                .transition(.opacity)
             VStack {
                 Spacer()
                 if viewModel.present {
-                    StartPageBottomView(showNextPage: $viewModel.showNextPage)
+                    StartPageBottomView()
                         .transition(
                             .move(edge: .bottom)
                                 .combined(with: .opacity)
@@ -26,20 +27,14 @@ struct StartPage<VModel: StartViewModelProtocol>: View, WithViewModel {
             }
             .padding([.bottom], 80)
             .padding([.leading, .trailing], 10)
+            .animation(.easeInOut(duration: 1.2), value: viewModel.present)
         }
         .onAppear {
-            withAnimation(.easeInOut(duration: 1.2)) {
-                viewModel.present = true
-            }
+            viewModel.present = true
         }
         .onDisappear {
-            withAnimation(.easeInOut(duration: 1.2)) {
-                viewModel.present = false
-            }
+            viewModel.present = false
         }
-        .fullScreenCover(isPresented: $viewModel.showNextPage, onDismiss: nil, content: {
-            AppCoordinator.shared.pageFor(route: .home)
-        })
     }
 }
 
