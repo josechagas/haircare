@@ -21,7 +21,6 @@
 		032EF0CB289425FB00971BC3 /* Pack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0CA289425FB00971BC3 /* Pack.swift */; };
 		032EF0CD2894266F00971BC3 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0CC2894266F00971BC3 /* Price.swift */; };
 		032EF0CF2894276A00971BC3 /* StoreItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 032EF0CE2894276A00971BC3 /* StoreItem.swift */; };
-		033364FE29475933000D0FB2 /* HomePageNavigationPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033364FD29475933000D0FB2 /* HomePageNavigationPath.swift */; };
 		0333650529479683000D0FB2 /* EnvVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333650429479683000D0FB2 /* EnvVariables.swift */; };
 		033365092947A001000D0FB2 /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033365082947A001000D0FB2 /* ApiRequest.swift */; };
 		0333650C2947AA4D000D0FB2 /* ProductsEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0333650B2947AA4D000D0FB2 /* ProductsEndpoints.swift */; };
@@ -83,6 +82,7 @@
 		03E7E73E2D131868003FA0DD /* StartPageBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E73D2D131860003FA0DD /* StartPageBuilder.swift */; };
 		03E7E7412D13191D003FA0DD /* ProductDetailBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E7402D131915003FA0DD /* ProductDetailBuilder.swift */; };
 		03E7E7442D1319CF003FA0DD /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E7432D1319CC003FA0DD /* HomeBuilder.swift */; };
+		03E7E74B2D15E223003FA0DD /* AppNavigationStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E7E74A2D15E21F003FA0DD /* AppNavigationStack.swift */; };
 		03F3459E28513230001D8BEC /* HairCareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F3459D28513230001D8BEC /* HairCareApp.swift */; };
 		03F345A228513233001D8BEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F345A128513233001D8BEC /* Assets.xcassets */; };
 		03F345A528513233001D8BEC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03F345A428513233001D8BEC /* Preview Assets.xcassets */; };
@@ -133,7 +133,6 @@
 		032EF0CA289425FB00971BC3 /* Pack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pack.swift; sourceTree = "<group>"; };
 		032EF0CC2894266F00971BC3 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		032EF0CE2894276A00971BC3 /* StoreItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreItem.swift; sourceTree = "<group>"; };
-		033364FD29475933000D0FB2 /* HomePageNavigationPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageNavigationPath.swift; sourceTree = "<group>"; };
 		0333650429479683000D0FB2 /* EnvVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvVariables.swift; sourceTree = "<group>"; };
 		033365082947A001000D0FB2 /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
 		0333650B2947AA4D000D0FB2 /* ProductsEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsEndpoints.swift; sourceTree = "<group>"; };
@@ -197,6 +196,7 @@
 		03E7E73D2D131860003FA0DD /* StartPageBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartPageBuilder.swift; sourceTree = "<group>"; };
 		03E7E7402D131915003FA0DD /* ProductDetailBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailBuilder.swift; sourceTree = "<group>"; };
 		03E7E7432D1319CC003FA0DD /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		03E7E74A2D15E21F003FA0DD /* AppNavigationStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationStack.swift; sourceTree = "<group>"; };
 		03F3459A28513230001D8BEC /* HairCare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HairCare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03F3459D28513230001D8BEC /* HairCareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HairCareApp.swift; sourceTree = "<group>"; };
 		03F345A128513233001D8BEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -426,13 +426,13 @@
 			path = Api;
 			sourceTree = "<group>";
 		};
-		03607A922938D53A0019EF5B /* Common */ = {
+		03607A922938D53A0019EF5B /* Core */ = {
 			isa = PBXGroup;
 			children = (
 				038A7DBE294CFFA4000D4910 /* CleanArch */,
 				033FF23528B446D400FF620A /* MVVMC */,
 			);
-			path = Common;
+			path = Core;
 			sourceTree = "<group>";
 		};
 		036588802852890A009E10BC /* Styles */ = {
@@ -562,6 +562,7 @@
 		03B8E5C528B0196B000B51A8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				03E7E74A2D15E21F003FA0DD /* AppNavigationStack.swift */,
 				03F3459D28513230001D8BEC /* HairCareApp.swift */,
 				0396D8E4286E369900BB9B2A /* Services */,
 				033FF23D28B7AD7E00FF620A /* Coordinator */,
@@ -616,7 +617,6 @@
 				032097AE285D23590076A601 /* HomePageProductsByCategory */,
 				0313FE4A285A7E2B00415063 /* HomePageTab */,
 				036588872853D8C0009E10BC /* HomePage.swift */,
-				033364FD29475933000D0FB2 /* HomePageNavigationPath.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -643,7 +643,7 @@
 		03E7E72F2D12FE21003FA0DD /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
-				03607A922938D53A0019EF5B /* Common */,
+				03607A922938D53A0019EF5B /* Core */,
 				033FF23828B7A9CA00FF620A /* Analytics */,
 				03B8E5B728B001C5000B51A8 /* Presentation */,
 				03B8E5BA28B0064E000B51A8 /* Domain */,
@@ -1169,7 +1169,7 @@
 				036BEA03285E07EF004A90B6 /* FooterView.swift in Sources */,
 				03F3459E28513230001D8BEC /* HairCareApp.swift in Sources */,
 				03C1FA162899B8E4007980EE /* HomeRepository.swift in Sources */,
-				033364FE29475933000D0FB2 /* HomePageNavigationPath.swift in Sources */,
+				03E7E74B2D15E223003FA0DD /* AppNavigationStack.swift in Sources */,
 				0396D8E8286E390900BB9B2A /* CartItem.swift in Sources */,
 				036BE9FE285DFD58004A90B6 /* CircularBorderedProminentButtonStyle.swift in Sources */,
 				03359D2628662AB100A7621F /* ProductDetailReadMoreView.swift in Sources */,
