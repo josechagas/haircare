@@ -12,8 +12,24 @@ import SwiftUI
 @MainActor
 protocol Coordinator {
     associatedtype Page: View
-    associatedtype Route: Hashable
+    associatedtype Route: RouteProtocol
 
     @ViewBuilder
     func pageFor(route: Route) -> Page
+    func navigationAuthorization(route: Route) -> Route.Authorization
+}
+
+@MainActor
+protocol NavigationDelegate {
+    associatedtype DelegateRoute: Hashable
+    func navigate(route: DelegateRoute)
+}
+
+protocol RouteProtocol: Hashable {
+    associatedtype Authorization: AuthorizationProtocol
+    static func unauthorized(with: Authorization) -> Self
+}
+
+protocol AuthorizationProtocol {
+    func isAuthorized() -> Bool
 }

@@ -8,7 +8,9 @@
 import Foundation
 import SwiftUI
 
-struct AppCoordinator: Coordinator {
+final class AppCoordinator: Coordinator, ObservableObject {
+    @Published var navigationPath: NavigationPath = NavigationPath()
+
     func pageFor(route: AppRoute) -> some View {
         switch route {
         case .start:
@@ -17,28 +19,44 @@ struct AppCoordinator: Coordinator {
             HomeBuilder().build()
         case AppRoute.productDetail(let product):
             ProductDetailBuilder(product: product).build()
+        case .unauthorized:
+            VStack(alignment: .center){
+                Spacer()
+                Text("Sem permissão")
+                Spacer()
+            }
         case .packDetail:
             EmptyView()
         }
     }
+    
+    func navigationAuthorization(route: AppRoute) -> RouteAuthorizationStatus {
+        .authorized
+    }
 }
 
-enum AppRoute: Codable, Hashable {
+enum AppRoute: RouteProtocol {
     case start
     case home
     case productDetail(product: Product)
     case packDetail(pack: Pack)
+    case unauthorized(with: RouteAuthorizationStatus)
     
     static func == (lhs: AppRoute, rhs: AppRoute) -> Bool {
         lhs.hashValue == rhs.hashValue
     }
         
     func hash(into hasher: inout Hasher) {
-        do {
-            let result: Data = try JSONEncoder().encode(self)
-            hasher.combine(result.hashValue)
-        } catch {
-            hasher.combine(UUID().hashValue)
-        }
+        let describing = String(describing: self)
+        hasher.combine(describing.hashValue)
+    }
+}
+
+enum RouteAuthorizationStatus: AuthorizationProtocol {
+    case authorized
+    case denied
+    
+    func isAuthorized() -> Bool {
+        self == .authorized
     }
 }
