@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomePageProductsByCategoryView: View {
-
     let category: StoreItemCategory
     let products: [Product]?
     
