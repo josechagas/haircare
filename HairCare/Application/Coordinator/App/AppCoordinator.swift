@@ -8,9 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class AppCoordinator: Coordinator, ObservableObject {
-    @Published var navigationPath: NavigationPath = NavigationPath()
-
+struct AppCoordinator: Coordinator {
     func pageFor(route: AppRoute) -> some View {
         switch route {
         case .start:
@@ -32,31 +30,5 @@ final class AppCoordinator: Coordinator, ObservableObject {
     
     func navigationAuthorization(route: AppRoute) -> RouteAuthorizationStatus {
         .authorized
-    }
-}
-
-enum AppRoute: RouteProtocol {
-    case start
-    case home
-    case productDetail(product: Product)
-    case packDetail(pack: Pack)
-    case unauthorized(with: RouteAuthorizationStatus)
-    
-    static func == (lhs: AppRoute, rhs: AppRoute) -> Bool {
-        lhs.hashValue == rhs.hashValue
-    }
-        
-    func hash(into hasher: inout Hasher) {
-        let describing = String(describing: self)
-        hasher.combine(describing.hashValue)
-    }
-}
-
-enum RouteAuthorizationStatus: AuthorizationProtocol {
-    case authorized
-    case denied
-    
-    func isAuthorized() -> Bool {
-        self == .authorized
     }
 }

@@ -45,6 +45,10 @@
 		03479D2829490539009B13B1 /* ApiProductsMockUrlProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03479D2729490539009B13B1 /* ApiProductsMockUrlProtocol.swift */; };
 		03479D2A29490B48009B13B1 /* ApiCallMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03479D2929490B48009B13B1 /* ApiCallMock.swift */; };
 		035F42C62D170A3E00F4A7C4 /* View+Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F42C52D170A3600F4A7C4 /* View+Coordinator.swift */; };
+		035F42C82D19C70800F4A7C4 /* AppNavigationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F42C72D19C70000F4A7C4 /* AppNavigationDelegate.swift */; };
+		035F42CA2D19CAD900F4A7C4 /* RouteAuthorizationStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F42C92D19CAD400F4A7C4 /* RouteAuthorizationStatus.swift */; };
+		035F42CC2D19CB0300F4A7C4 /* ProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F42CB2D19CAFD00F4A7C4 /* ProfileCoordinator.swift */; };
+		035F42CF2D19CD2900F4A7C4 /* AppRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F42CE2D19CD2700F4A7C4 /* AppRoute.swift */; };
 		03607A902938D46D0019EF5B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03607A8F2938D46D0019EF5B /* Coordinator.swift */; };
 		03607A942938D5F90019EF5B /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03607A932938D5F90019EF5B /* AppCoordinator.swift */; };
 		0365888228528928009E10BC /* OutlinedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0365888128528928009E10BC /* OutlinedButtonStyle.swift */; };
@@ -159,6 +163,10 @@
 		03479D2729490539009B13B1 /* ApiProductsMockUrlProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProductsMockUrlProtocol.swift; sourceTree = "<group>"; };
 		03479D2929490B48009B13B1 /* ApiCallMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallMock.swift; sourceTree = "<group>"; };
 		035F42C52D170A3600F4A7C4 /* View+Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Coordinator.swift"; sourceTree = "<group>"; };
+		035F42C72D19C70000F4A7C4 /* AppNavigationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationDelegate.swift; sourceTree = "<group>"; };
+		035F42C92D19CAD400F4A7C4 /* RouteAuthorizationStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteAuthorizationStatus.swift; sourceTree = "<group>"; };
+		035F42CB2D19CAFD00F4A7C4 /* ProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCoordinator.swift; sourceTree = "<group>"; };
+		035F42CE2D19CD2700F4A7C4 /* AppRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRoute.swift; sourceTree = "<group>"; };
 		03607A8F2938D46D0019EF5B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		03607A932938D5F90019EF5B /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		0365888128528928009E10BC /* OutlinedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutlinedButtonStyle.swift; sourceTree = "<group>"; };
@@ -405,7 +413,9 @@
 		033FF23D28B7AD7E00FF620A /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				03607A932938D5F90019EF5B /* AppCoordinator.swift */,
+				035F42CD2D19CD0600F4A7C4 /* App */,
+				035F42CB2D19CAFD00F4A7C4 /* ProfileCoordinator.swift */,
+				035F42C92D19CAD400F4A7C4 /* RouteAuthorizationStatus.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -435,6 +445,15 @@
 				035F42C52D170A3600F4A7C4 /* View+Coordinator.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		035F42CD2D19CD0600F4A7C4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				035F42CE2D19CD2700F4A7C4 /* AppRoute.swift */,
+				03607A932938D5F90019EF5B /* AppCoordinator.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		03607A922938D53A0019EF5B /* Core */ = {
@@ -573,6 +592,7 @@
 		03B8E5C528B0196B000B51A8 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				035F42C72D19C70000F4A7C4 /* AppNavigationDelegate.swift */,
 				03E7E74A2D15E21F003FA0DD /* AppNavigationStack.swift */,
 				03F3459D28513230001D8BEC /* HairCareApp.swift */,
 				0396D8E4286E369900BB9B2A /* Services */,
@@ -1170,6 +1190,7 @@
 				032EF0CB289425FB00971BC3 /* Pack.swift in Sources */,
 				0396D8E6286E36C100BB9B2A /* CartService.swift in Sources */,
 				0313C01028A6F2A400076DD4 /* ViewModel.swift in Sources */,
+				035F42C82D19C70800F4A7C4 /* AppNavigationDelegate.swift in Sources */,
 				03F6A7DC2858BACD00172D91 /* ProfileImageView.swift in Sources */,
 				031CE0EC286CEFE400B4B74D /* RoundedCornersShape.swift in Sources */,
 				03B8E5C028B00736000B51A8 /* HomeRepositoryProtocol.swift in Sources */,
@@ -1203,7 +1224,9 @@
 				03C45F06293A3CC000B341A5 /* StartViewModelProtocol.swift in Sources */,
 				03C1FA1328984E36007980EE /* ExecutionStatus.swift in Sources */,
 				03F345D028523290001D8BEC /* BigLogoView.swift in Sources */,
+				035F42CC2D19CB0300F4A7C4 /* ProfileCoordinator.swift in Sources */,
 				0313C01A28A6FB8700076DD4 /* ExecutionInProgressView.swift in Sources */,
+				035F42CF2D19CD2900F4A7C4 /* AppRoute.swift in Sources */,
 				033A05D82943D1190087CE54 /* HomePageListView.swift in Sources */,
 				033A05C82943C1290087CE54 /* StoreItemCategory+Extensions.swift in Sources */,
 				03E7E7412D13191D003FA0DD /* ProductDetailBuilder.swift in Sources */,
@@ -1237,6 +1260,7 @@
 				0333650C2947AA4D000D0FB2 /* ProductsEndpoints.swift in Sources */,
 				0396D8E3286E32E300BB9B2A /* LargeButton.swift in Sources */,
 				03359D222865F9EE00A7621F /* UIColor+Extensions.swift in Sources */,
+				035F42CA2D19CAD900F4A7C4 /* RouteAuthorizationStatus.swift in Sources */,
 				03C1FA1A2899B935007980EE /* PacksApiService.swift in Sources */,
 				036BE9F9285DF67D004A90B6 /* Product.swift in Sources */,
 			);
