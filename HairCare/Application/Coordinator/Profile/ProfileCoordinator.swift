@@ -14,7 +14,7 @@ struct ProfileCoordinator: Coordinator {
             Text("profile")
         case .edit:
             Text("edit profile")
-        case .unauthorized(let authorizationStatus):
+        case .unauthorized:
             VStack(alignment: .center){
                 Spacer()
                 Text("Sem permissão")
@@ -26,10 +26,4 @@ struct ProfileCoordinator: Coordinator {
     func navigationAuthorization(route: ProfileRoute) -> RouteAuthorizationStatus {
         .authorized
     }
-}
-
-enum ProfileRoute: RouteProtocol {
-    case profile
-    case edit
-    case unauthorized(with: RouteAuthorizationStatus)
 }
