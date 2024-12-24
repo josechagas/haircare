@@ -9,20 +9,26 @@ import Foundation
 import SwiftUI
 
 struct AppCoordinator: Coordinator {
+    let children: [any Coordinator] = [
+        ProfileCoordinator()
+    ]
+
     func pageFor(route: AppRoute) -> some View {
         switch route {
         case .start:
             StartPageBuilder().build()
-        case AppRoute.home:
+        case .home:
             HomeBuilder().build()
-        case AppRoute.productDetail(let product):
+        case .productDetail(let product):
             ProductDetailBuilder(product: product).build()
-        case .unauthorized:
-            VStack(alignment: .center){
-                Spacer()
-                Text("Sem permissão")
-                Spacer()
+        case .profile(let route):
+            if let coordinator = children.first(where: ProfileCoordinator.self) {
+                coordinator.pageFor(route: route)
+            } else {
+                EmptyView()
             }
+        case .unauthorized:
+            UnauthorizedBuilder().build()
         case .packDetail:
             EmptyView()
         }
