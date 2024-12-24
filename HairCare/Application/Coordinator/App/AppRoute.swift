@@ -10,5 +10,6 @@ enum AppRoute: RouteProtocol {
     case home
     case productDetail(product: Product)
     case packDetail(pack: Pack)
+    case profile(route: ProfileRoute)
     case unauthorized(with: RouteAuthorizationStatus)
 }

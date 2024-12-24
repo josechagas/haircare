@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ProfileCoordinator: Coordinator {
+    let children: [any Coordinator] = []
+    
     func pageFor(route: ProfileRoute) -> some View {
         switch route {
         case .profile:
@@ -15,11 +17,7 @@ struct ProfileCoordinator: Coordinator {
         case .edit:
             Text("edit profile")
         case .unauthorized:
-            VStack(alignment: .center){
-                Spacer()
-                Text("Sem permissão")
-                Spacer()
-            }
+            UnauthorizedBuilder().build()
         }
     }
     

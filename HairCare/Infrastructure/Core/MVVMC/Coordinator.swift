@@ -14,6 +14,8 @@ protocol Coordinator {
     associatedtype Page: View
     associatedtype Route: RouteProtocol
 
+    var children: [any Coordinator] { get }
+    
     @ViewBuilder
     func pageFor(route: Route) -> Page
     func navigationAuthorization(route: Route) -> Route.Authorization

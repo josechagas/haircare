@@ -13,7 +13,6 @@ struct AppNavigationStack: View {
     @State private var navigationDelegate: AppNavigationDelegate
     
     private var appCoordinator: AppCoordinator = AppCoordinator()
-    private var profileCoordinator: ProfileCoordinator = ProfileCoordinator()
     
     init(navigationPath: Binding<NavigationPath>) {
         self._navigationPath = navigationPath
@@ -24,7 +23,6 @@ struct AppNavigationStack: View {
         NavigationStack(path: $navigationPath) {
             appCoordinator.pageFor(route: .home)
                 .navigationDestination(for: appCoordinator)
-                .navigationDestination(for: profileCoordinator)
         }
         .fullScreenCover(isPresented: $presentStartModal) {
             appCoordinator.pageFor(route: .start)
