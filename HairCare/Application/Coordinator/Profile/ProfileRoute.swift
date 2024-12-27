@@ -11,3 +11,16 @@ enum ProfileRoute: RouteProtocol {
     case edit
     case unauthorized(with: RouteAuthorizationStatus)
 }
+
+extension ProfileRoute {
+    var presentationStyle: PresentationStyle {
+        switch self {
+        case .profile:
+                .stack
+        case .edit:
+                .sheet
+        case .unauthorized:
+                .sheet
+        }
+    }
+}

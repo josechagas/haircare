@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomePageProductsByCategoryView: View {
+    @Environment(\.navigationDelegate) private var delegate: (any NavigationDelegate<AppRoute>)?
     let category: StoreItemCategory
     let products: [Product]?
     
@@ -20,11 +21,20 @@ struct HomePageProductsByCategoryView: View {
                 ScrollView(.horizontal, showsIndicators: false, content: {
                     LazyHStack(spacing: 35){
                         ForEach(products) { product in
-                            NavigationLink(value: AppRoute.productDetail(product: product)) {
+                            //TODO: Try to make possible usage of NavigationLink
+//                            NavigationLink(value: AppRoute.productDetail(product: product)) {
+//                                ProductCardView(
+//                                    product: product
+//                                )
+//                            }
+//                            .buttonStyle(PlainButtonStyle())
+                            Button(action: {
+                                delegate?.navigate(route: AppRoute.profile(route: .edit))
+                            }, label: {
                                 ProductCardView(
                                     product: product
                                 )
-                            }
+                            })
                             .buttonStyle(PlainButtonStyle())
                         }
                     }

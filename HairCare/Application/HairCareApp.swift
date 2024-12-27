@@ -10,11 +10,10 @@ import SwiftUI
 @main
 struct HairCareApp: App {
     @State private var cartService: CartService = CartService()
-    @State private var navigationPath: NavigationPath = NavigationPath()
 
     var body: some Scene {
         WindowGroup {
-            AppNavigationStack(navigationPath: $navigationPath)
+            AppNavigationStack()
                 .environmentObject(cartService)
         }
     }

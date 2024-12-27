@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ProfileCoordinator: Coordinator {
-    let children: [any Coordinator] = []
+    
+    var children: [any Coordinator] = []
     
     func pageFor(route: ProfileRoute) -> some View {
         switch route {
@@ -19,6 +20,19 @@ struct ProfileCoordinator: Coordinator {
         case .unauthorized:
             UnauthorizedBuilder().build()
         }
+    }
+    
+    func pathForDesired(route: ProfileRoute) -> [ProfileRoute] {
+        let authorization = navigationAuthorization(route: route)
+        guard authorization.isAuthorized() else {
+            return [ProfileRoute.unauthorized(with: authorization)]
+        }
+        
+        if case .edit = route {
+            return [.profile, route]
+        }
+        
+        return [route]
     }
     
     func navigationAuthorization(route: ProfileRoute) -> RouteAuthorizationStatus {
