@@ -8,25 +8,20 @@
 import SwiftUI
 
 struct AppNavigationStack: View {
-    @Binding var navigationPath: NavigationPath
-    @State private var presentStartModal: Bool = false
-    @State private var navigationDelegate: AppNavigationDelegate
+    @StateObject private var appCoordinator: AppCoordinator = AppCoordinator()
     
-    private var appCoordinator: AppCoordinator = AppCoordinator()
-    
-    init(navigationPath: Binding<NavigationPath>) {
-        self._navigationPath = navigationPath
-        self.navigationDelegate = AppNavigationDelegate(navigationPath: navigationPath)
-    }
-
     var body: some View {
-        NavigationStack(path: $navigationPath) {
+        let _ = Self._printChanges()
+        NavigationStack(path: $appCoordinator.navigationPath) {
             appCoordinator.pageFor(route: .home)
                 .navigationDestination(for: appCoordinator)
         }
-        .fullScreenCover(isPresented: $presentStartModal) {
-            appCoordinator.pageFor(route: .start)
-        }
-        .environmentObject(navigationDelegate)
+        .fullScreenCover(item: $appCoordinator.modalFullScreen, content: { route in
+            appCoordinator.pageFor(route: route)
+        })
+        .sheet(item: $appCoordinator.modalSheet, content: { route in
+            appCoordinator.pageFor(route: route)
+        })
+        .environment(\.navigationDelegate, appCoordinator)
     }
 }
