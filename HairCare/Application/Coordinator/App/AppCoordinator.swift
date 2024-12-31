@@ -9,9 +9,9 @@ import Foundation
 import SwiftUI
 
 final class AppCoordinator: Coordinator {
-    @Published var navigationPath: NavigationPath = NavigationPath()
+    @Published var navigationPath: [AppRoute] = []
     @Published var modalSheet: AppRoute?
-    @Published var modalFullScreen: AppRoute? = .start
+    @Published var modalFullScreen: AppRoute?
     
     lazy var children: [any Coordinator] = [
         ProfileCoordinator()
@@ -65,7 +65,7 @@ extension AppCoordinator: NavigationDelegate {
         path.forEach { route in
             switch route.presentationStyle {
             case .stack:
-                navigationPath.append(route) //TODO: multiple appends at once, analize using an array instead of navigationPath
+                navigationPath.append(route)
             case .fullScreenCover:
                 modalFullScreen = route
             case .sheet:

@@ -18,7 +18,7 @@ extension AppRoute {
     var presentationStyle: PresentationStyle {
         switch self {
         case .start:
-                .fullScreenCover
+                .stack
         case .home:
                 .stack
         case .productDetail:
