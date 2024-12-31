@@ -9,14 +9,14 @@ import SwiftUI
 
 struct StartPageBottomView: View {
 
-    @Environment(\.dismiss) var dismissAction
+    @Environment(\.navigationDelegate) var navigationDelegate: (any NavigationDelegate<AppRoute>)?
 
     var body: some View {
         VStack(spacing: 40) {
             BigLogoView()
             Button(
                 action: {
-                    dismissAction()
+                    navigationDelegate?.navigate(route: .home)
                 }) {
                     Text(R.string.startPage.get_started())
                         .padding([.leading, .trailing], 20)

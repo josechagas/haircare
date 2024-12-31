@@ -33,6 +33,7 @@ protocol Coordinator {
     ///
     ///The list will contain 1 or more items depending on **Application Business Rules**.
     ///It is expected that this method will be called after authorization validation by calling ``Coordinator/navigationAuthorization(route:)``
+    ///
     ///> Important: The list must be in the correct navigation order.
     ///
     func pathForDesired(route: Route) -> [Route]
@@ -46,6 +47,7 @@ protocol Coordinator {
 @MainActor
 extension Coordinator {
     ///Delegate to a child coordinator the creation of corresponding View
+    ///
     ///- parameter route: The child route you want to navigate to
     ///- parameter child: The child coordinator type
     ///- returns: The instance of View that represents the **parameter route**
@@ -62,6 +64,7 @@ extension Coordinator {
         }
     }
     ///Delegate to a child coordinator the definition the path necessary to navigate to the **desired route**
+    ///
     ///- parameter route: The child route you want to navigate to
     ///- parameter child: The child coordinator type
     ///- parameter mapToSelfRoute: A clousure that encapsulates the Child.Route into the Self.Route.
@@ -78,6 +81,7 @@ extension Coordinator {
         return coordinator.pathForDesired(route: route).map(mapToSelfRoute)
     }
     ///Delegate to a child coordinator the definition of authorization status to navigate to the **desired route**
+    ///
     ///- parameter route: The child route you want to navigate to
     ///- parameter child: The child coordinator type
     ///- returns: The authorization status or ``AuthorizationProtocol/unknownRoute`` if the child coordinator does not exists on ``children``
@@ -97,36 +101,4 @@ extension Coordinator {
 protocol NavigationDelegate<DelegateRoute>: ObservableObject {
     associatedtype DelegateRoute: RouteProtocol
     func navigate(route: DelegateRoute)
-}
-
-protocol RouteProtocol: Hashable, Identifiable<Int> {
-    associatedtype Authorization: AuthorizationProtocol
-    static func unauthorized(with: Authorization) -> Self
-    var presentationStyle: PresentationStyle { get }
-}
-
-extension RouteProtocol {
-    static func == (lhs: Self, rhs: Self) -> Bool {
-        lhs.hashValue == rhs.hashValue
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        let describing = String(describing: self)
-        hasher.combine(describing.hashValue)
-    }
-    
-    var id: Int {
-        self.hashValue
-    }
-}
-
-protocol AuthorizationProtocol {
-    static var unknownRoute: Self { get }
-    func isAuthorized() -> Bool
-}
-
-enum PresentationStyle {
-    case stack
-    case fullScreenCover
-    case sheet
 }

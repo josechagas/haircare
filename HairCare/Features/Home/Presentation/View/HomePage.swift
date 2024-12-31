@@ -58,6 +58,7 @@ struct HomePage<VModel: HomeViewModelProtocol>: View, WithViewModel {
             }
         }
         .navigationTitle(R.string.homePage.new_collection())
+        .navigationBarBackButtonHidden()
         .animation(.easeInOut, value: viewModel.loadInformationsStatus)
         .task {
             await viewModel.loadInformations()

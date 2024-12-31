@@ -13,7 +13,7 @@ struct AppNavigationStack: View {
     var body: some View {
         let _ = Self._printChanges()
         NavigationStack(path: $appCoordinator.navigationPath) {
-            appCoordinator.pageFor(route: .home)
+            appCoordinator.pageFor(route: .start)
                 .navigationDestination(for: appCoordinator)
         }
         .fullScreenCover(item: $appCoordinator.modalFullScreen, content: { route in
