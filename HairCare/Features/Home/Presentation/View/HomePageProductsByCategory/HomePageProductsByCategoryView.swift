@@ -28,14 +28,11 @@ struct HomePageProductsByCategoryView: View {
 //                                )
 //                            }
 //                            .buttonStyle(PlainButtonStyle())
-                            Button(action: {
-                                delegate?.navigate(route: AppRoute.profile(route: .edit))
-                            }, label: {
+                            NavigationDelegateLink(destination: .profile(route: .edit)) {
                                 ProductCardView(
                                     product: product
                                 )
-                            })
-                            .buttonStyle(PlainButtonStyle())
+                            }
                         }
                     }
                     .frame(height: 350)
