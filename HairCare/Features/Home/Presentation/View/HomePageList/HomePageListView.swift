@@ -39,7 +39,7 @@ struct HomePageListView<VModel: HomeListViewModelProtocol>: View, WithViewModel 
                 .listRowSeparator(.hidden)
                 .listSectionSeparator(.hidden)
             }
-            .onChange(of: viewModel.selectedTabIndex, perform: { newValue in
+            onChange(of: viewModel.selectedTabIndex, { oldValue, newValue in
                 onSelectedTabIndexChange(newTabIndex: newValue, proxy: proxy)
             })
         }

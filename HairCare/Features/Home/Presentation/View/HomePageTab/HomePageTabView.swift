@@ -47,10 +47,10 @@ struct HomePageTabView: View {
             }
             .padding([.top])
             .padding([.bottom], 0)
-            .onChange(of: selectedIndex, perform: { index in
+            .onChange(of: selectedIndex, { oldIndex, newIndex in
                 withAnimation {
                     let anchor: UnitPoint
-                    switch(index){
+                    switch(newIndex){
                     case firstIndex:
                         anchor = UnitPoint.trailing
                     case lastIndex:
@@ -58,7 +58,7 @@ struct HomePageTabView: View {
                     default:
                         anchor = UnitPoint.center
                     }
-                    proxy.scrollTo(index, anchor: anchor)
+                    proxy.scrollTo(newIndex, anchor: anchor)
                 }
             })
         }
