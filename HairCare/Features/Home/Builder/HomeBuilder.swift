@@ -10,10 +10,12 @@ import SwiftUI
 @MainActor
 struct HomeBuilder {
     func build() -> some View {
-        let repository = HomeRepository(packsApi: PacksApiService(),
-                                        productsApi: ProductsApiService())
-        let useCase = HomeUseCase(repository: repository)
-        let viewModel = HomeViewModel(homeUseCase: useCase)
+        let repository = ItemsRepository(packsApi: PacksApiService(),
+                                         productsApi: ProductsApiService())
+        let packsUseCase = FetchPacksUseCase(repository: repository)
+        let productsByCategoryUseCase = FetchProductsByCategoryUseCase(repository: repository)
+        let viewModel = HomeViewModel(packsUseCase: packsUseCase,
+                                      productsByCategoryUseCase: productsByCategoryUseCase)
         return HomePage(
             viewModel: viewModel
         )

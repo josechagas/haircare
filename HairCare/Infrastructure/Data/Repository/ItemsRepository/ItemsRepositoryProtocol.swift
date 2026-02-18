@@ -1,13 +1,12 @@
 //
-//  HomeUseCaseProtocol.swift
+//  ItemsRepositoryProtocol.swift
 //  HairCare
 //
-//  Created by José Lucas Souza das Chagas on 25/08/22.
+//  Created by José Lucas Souza das Chagas on 03/12/25.
 //
 
-import Foundation
 
-protocol HomeUseCaseProtocol: UseCase {
+protocol ItemsRepositoryProtocol: Repository {
     func loadPacks() async throws -> [Pack]
     func loadProductsByCategory() async throws -> [StoreItemCategory : [Product]]
 }

@@ -1,13 +1,12 @@
 //
-//  HomeRepository.swift
+//  ItemsRepository.swift
 //  HairCare
 //
-//  Created by José Lucas Souza das Chagas on 02/08/22.
+//  Created by José Lucas Souza das Chagas on 03/12/25.
 //
 
-import Foundation
 
-struct HomeRepository: HomeRepositoryProtocol {
+struct ItemsRepository: ItemsRepositoryProtocol {
     private let packsApi: PacksApiServiceProtocol
     private let productsApi: ProductsApiServiceProtocol
     
