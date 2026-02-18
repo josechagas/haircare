@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "8EB7A6E8-D816-44C6-9EDF-4597919C2B42",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:HairCare.xcodeproj",
+        "identifier" : "B043E0F5074688B9B0CB3D31",
+        "name" : "AppTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:HairCare.xcodeproj",
+        "identifier" : "10A9DB7C4DE1A401815E2AAD",
+        "name" : "AppUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

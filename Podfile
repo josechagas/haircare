@@ -1,19 +1,19 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
 
-target 'HairCare' do
+target 'App' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
   # Pods for HairCare
   pod 'R.swift'
 
-  target 'HairCareTests' do
+  target 'AppTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
-  target 'HairCareUITests' do
+  target 'AppUITests' do
     # Pods for testing
   end
 

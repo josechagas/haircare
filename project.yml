@@ -1,0 +1,67 @@
+name: HairCare
+options:
+  bundleIdPrefix: br.com.haircare
+  minimumXcodeGenVersion: 2.44.1
+  createIntermediateGroups: true
+settings:
+  SWIFT_APPROACHABLE_CONCURRENCY: NO
+  SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
+  SWIFT_STRICT_CONCURRENCY: complete
+  MARKETING_VERSION: 1.0.0
+  CURRENT_PROJECT_VERSION: 1
+
+targetTemplates:
+  AppTemplate:
+    platform: iOS
+    deploymentTarget: "17.6"
+  AppTestsTemplate:
+    dependencies:
+      - target: App
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+
+targets:
+  App:
+    templates: 
+      - AppTemplate
+    type: application
+    sources: [HairCare]
+    settings:
+      GENERATE_INFOPLIST_FILE: YES
+      PRODUCT_NAME: Hair Care
+  AppTests:
+    templates: 
+      - AppTemplate
+      - AppTestsTemplate
+    type: bundle.unit-test
+    sources: [HairCareTests]
+  AppUITests:
+    templates: 
+      - AppTemplate
+      - AppTestsTemplate
+    type: bundle.ui-testing
+    sources: [HairCareUITests]
+
+schemes:
+  App:
+    build:
+      targets:
+        App: all
+      testTargets:
+        - AppTests
+        - AppUITests
+    run:
+      environmentVariables:
+        - variable: "APP_NAME"
+          value: "Hair Care"
+          isEnabled: true
+    test:
+      environmentVariables:
+        - variable: "APP_NAME"
+          value: "Hair Care"
+          isEnabled: false
+      testPlans:
+        - path: TestPlan.xctestplan
+          defaultPlan: true
+        
+

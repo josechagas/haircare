@@ -6,7 +6,7 @@
 //
 
 import XCTest
-@testable import HairCare
+@testable import App
 
 class HairCareTests: XCTestCase {
 
