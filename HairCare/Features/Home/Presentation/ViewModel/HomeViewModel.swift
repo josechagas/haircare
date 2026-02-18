@@ -17,10 +17,13 @@ class HomeViewModel: HomeViewModelProtocol {
     @Published var loadInformationsStatus: ExecutionStatus = .none
     @Published var refreshInformationsStatus: ExecutionStatus = .none
         
-    private let homeUseCase: HomeUseCaseProtocol
+    private let packsUseCase: FetchPacksUseCaseProtocol
+    private let productsByCategoryUseCase: FetchProductsByCategoryUseCaseProtocol
     
-    init(homeUseCase: HomeUseCaseProtocol) {
-        self.homeUseCase = homeUseCase
+    init(packsUseCase: FetchPacksUseCaseProtocol,
+         productsByCategoryUseCase: FetchProductsByCategoryUseCaseProtocol) {
+        self.packsUseCase = packsUseCase
+        self.productsByCategoryUseCase = productsByCategoryUseCase
     }
     
     func loadInformations() async {
@@ -46,9 +49,8 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     private func performInformationsLoad() async throws {
-        let usecase = homeUseCase
-        async let loadedProducts = usecase.loadProductsByCategory()
-        async let loadedPacks = usecase.loadPacks()
+        async let loadedProducts = productsByCategoryUseCase.execute()
+        async let loadedPacks = packsUseCase.execute()
         (productsByCategory, packs) = try await (loadedProducts, loadedPacks)
     }
 }
