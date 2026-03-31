@@ -21,7 +21,7 @@ struct EnvVariables: Decodable {
     static let instance: EnvVariables = load()
     
     private static func load() -> EnvVariables {
-        if let plistPath = Bundle.main.url(forResource: "Info", withExtension: "plist") {
+        if let plistPath = Bundle.main.url(forResource: "EnvVariables", withExtension: "plist") {
             do {
                 let plistData = try Data(contentsOf: plistPath)
                 return try PropertyListDecoder().decode(EnvVariables.self, from: plistData)

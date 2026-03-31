@@ -3,17 +3,29 @@ options:
   bundleIdPrefix: br.com.haircare
   minimumXcodeGenVersion: 2.44.1
   createIntermediateGroups: true
+
+fileGroups:
+  - TestPlan.xctestplan
+
+configs:
+  debug: debug
+  release: release
+
 settings:
+  APP_NAME: "Hair Care"
+  TARGETED_DEVICE_FAMILY: 1
+  IPHONEOS_DEPLOYMENT_TARGET: "17.6"
+  ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: Yes
+  ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: Yes
   SWIFT_APPROACHABLE_CONCURRENCY: NO
   SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
   SWIFT_STRICT_CONCURRENCY: complete
-  MARKETING_VERSION: 1.0.0
-  CURRENT_PROJECT_VERSION: 1
 
 targetTemplates:
   AppTemplate:
     platform: iOS
     deploymentTarget: "17.6"
+
   AppTestsTemplate:
     dependencies:
       - target: App
@@ -26,15 +38,25 @@ targets:
       - AppTemplate
     type: application
     sources: [HairCare]
+      
     settings:
-      GENERATE_INFOPLIST_FILE: YES
-      PRODUCT_NAME: Hair Care
+      configs:
+        debug:
+          DEBUG_MODE: YES
+          PRODUCT_BUNDLE_IDENTIFIER: br.com.haircare.debug.App
+          PRODUCT_DISPLAY_NAME: "Debug $(APP_NAME)"
+        release:
+          DEBUG_MODE: NO
+          PRODUCT_BUNDLE_IDENTIFIER: br.com.haircare.App
+          PRODUCT_DISPLAY_NAME: $(APP_NAME)
+
   AppTests:
-    templates: 
+    templates:
       - AppTemplate
       - AppTestsTemplate
     type: bundle.unit-test
     sources: [HairCareTests]
+
   AppUITests:
     templates: 
       - AppTemplate
@@ -47,21 +69,25 @@ schemes:
     build:
       targets:
         App: all
-      testTargets:
-        - AppTests
-        - AppUITests
     run:
-      environmentVariables:
-        - variable: "APP_NAME"
-          value: "Hair Care"
-          isEnabled: true
+      config: debug
     test:
-      environmentVariables:
-        - variable: "APP_NAME"
-          value: "Hair Care"
-          isEnabled: false
+      config: debug
+      gatherCoverageData: true
+      coverageTargets: 
+        - App
+
+      targets:
+        - name: AppTests
+        - name: AppUITests
+
       testPlans:
         - path: TestPlan.xctestplan
           defaultPlan: true
-        
+    profile:
+      config: release
+    analyze:
+      config: debug
+    archive:
+      config: release
 
