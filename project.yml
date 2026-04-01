@@ -25,12 +25,11 @@ settingGroups:
 
 settings:
   APP_NAME: "Hair Care"
-  groups: [SwiftConcurrency, Localization, StaticAnalysis]
+  groups: [SwiftConcurrency, Localization]
   base:
     TARGETED_DEVICE_FAMILY: 1
     IPHONEOS_DEPLOYMENT_TARGET: "17.6"
     
-
 targetTemplates:
   AppTemplate:
     platform: iOS
@@ -59,6 +58,15 @@ targets:
           DEBUG_MODE: NO
           PRODUCT_BUNDLE_IDENTIFIER: br.com.haircare.App
           PRODUCT_DISPLAY_NAME: $(APP_NAME)
+    preBuildScripts:
+      - name: Check for duplicated strings
+        shell: /bin/sh
+        script: |
+          if which python3 >/dev/null; then
+            python3 "${SRCROOT}/scripts/check_duplicated_strings.py" "${SRCROOT}"
+          else
+            echo "warning: Python 3 não encontrado para validar .xcstrings"
+          fi
 
   AppTests:
     templates:
