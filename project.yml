@@ -11,15 +11,25 @@ configs:
   debug: debug
   release: release
 
+settingGroups:
+  SwiftConcurrency:
+    SWIFT_APPROACHABLE_CONCURRENCY: NO
+    SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
+    SWIFT_STRICT_CONCURRENCY: complete
+  Localization:
+    STRING_CATALOG_GENERATE_SYMBOLS: Yes
+    LOCALIZATION_PREFERS_STRING_CATALOGS: Yes
+  AssetCatalogCompiler:
+    ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: Yes
+    ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: Yes
+
 settings:
   APP_NAME: "Hair Care"
-  TARGETED_DEVICE_FAMILY: 1
-  IPHONEOS_DEPLOYMENT_TARGET: "17.6"
-  ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: Yes
-  ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: Yes
-  SWIFT_APPROACHABLE_CONCURRENCY: NO
-  SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
-  SWIFT_STRICT_CONCURRENCY: complete
+  groups: [SwiftConcurrency, Localization, StaticAnalysis]
+  base:
+    TARGETED_DEVICE_FAMILY: 1
+    IPHONEOS_DEPLOYMENT_TARGET: "17.6"
+    
 
 targetTemplates:
   AppTemplate:
@@ -38,8 +48,8 @@ targets:
       - AppTemplate
     type: application
     sources: [HairCare]
-      
     settings:
+      groups: [AssetCatalogCompiler]
       configs:
         debug:
           DEBUG_MODE: YES
