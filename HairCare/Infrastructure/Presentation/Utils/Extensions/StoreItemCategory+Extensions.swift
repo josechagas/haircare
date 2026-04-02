@@ -9,17 +9,18 @@ import Foundation
 
 extension StoreItemCategory {
     var localizedName: String {
-        switch self {
+        let localizedResource: LocalizedStringResource = switch self {
         case .packs:
-            return R.string.storeItemCategory.packs()
+                .Common.packs
         case .shampoo:
-            return R.string.storeItemCategory.shampoo()
+                .Common.shampoo
         case .hairMask:
-            return R.string.storeItemCategory.hair_mask()
+                .Common.hairMask
         case .conditioner:
-            return R.string.storeItemCategory.conditioner()
+                .Common.conditioner
         case .painting:
-            return R.string.storeItemCategory.painting()
+                .Common.painting
         }
+        return String(localized: localizedResource)
     }
 }

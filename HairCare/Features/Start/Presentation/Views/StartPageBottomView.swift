@@ -18,7 +18,7 @@ struct StartPageBottomView: View {
                 action: {
                     navigationDelegate?.navigate(route: .home)
                 }) {
-                    Text(R.string.startPage.get_started())
+                    Text(.StartPage.getStarted)
                         .padding([.leading, .trailing], 20)
                         .padding([.top, .bottom], 5)
                 }

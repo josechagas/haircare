@@ -54,7 +54,7 @@ struct ProductDetailPage<VModel: ProductDetailViewModelProtocol>: View, WithView
                 )
             })
         .navigationBarTitleDisplayMode(.inline)
-        .navigationTitle(R.string.productDetail.details())
+        .navigationTitle(.ProductDetail.details)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing){
                 Button(action: {}) {

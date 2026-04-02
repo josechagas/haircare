@@ -10,7 +10,7 @@ import SwiftUI
 struct ProductDetailIngredientsView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10){
-            Text(R.string.productDetail.ingredients()+":")
+            Text(String(localized: .ProductDetail.ingredients) + ":")
                 .font(.caption)
             List(0..<40, id: \.self) { item in
                 IngredientCardView(

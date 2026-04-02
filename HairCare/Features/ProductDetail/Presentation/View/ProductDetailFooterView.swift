@@ -29,7 +29,7 @@ struct ProductDetailFooterView: View {
             LargeButton(
                 action: onAddToCartButtonClick,
                 label: {
-                Text(R.string.productDetail.add_to_cart())
+                    Text(.ProductDetail.addToCart)
             })
                 .buttonStyle(.borderedProminent)
                 .cornerRadius(.infinity)
