@@ -22,13 +22,25 @@ settingGroups:
   AssetCatalogCompiler:
     ASSETCATALOG_COMPILER_GENERATE_ASSET_SYMBOLS: Yes
     ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS: Yes
+  StaticAnalysis:
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: Yes
+  InfoPlist:
+    INFOPLIST_KEY_UIApplicationSceneManifest_Generation: Yes
+    INFOPLIST_KEY_UILaunchScreen_Generation: Yes
+    INFOPLIST_KEY_CFBundleDisplayName: $(PRODUCT_DISPLAY_NAME)
+    INFOPLIST_KEY_LSApplicationCategoryType: Shopping
+    INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+
+
 
 settings:
   APP_NAME: "Hair Care"
-  groups: [SwiftConcurrency, Localization]
+  groups: [SwiftConcurrency, Localization, StaticAnalysis, InfoPlist]
   base:
     TARGETED_DEVICE_FAMILY: 1
     IPHONEOS_DEPLOYMENT_TARGET: "17.6"
+    MARKETING_VERSION: 1.0.0
+    CURRENT_PROJECT_VERSION: 1
     
 targetTemplates:
   AppTemplate:
@@ -49,6 +61,8 @@ targets:
     sources: [HairCare]
     settings:
       groups: [AssetCatalogCompiler]
+      base:
+        GENERATE_INFOPLIST_FILE: YES
       configs:
         debug:
           DEBUG_MODE: YES
